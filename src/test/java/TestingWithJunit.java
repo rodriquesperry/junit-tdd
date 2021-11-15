@@ -1,7 +1,21 @@
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class TestingWithJunit {
+
+    private List<String> names;
+
+    @Before
+    //Doesn't have to be named setUp... can be named anything
+    public void setUp() {
+        this.names = new ArrayList<>();
+        this.names.add("Fer");
+    }
 
     @Test
     public void testHelloWorld() {
@@ -15,7 +29,6 @@ public class TestingWithJunit {
 
         assertEquals(expected, actual);
     }
-
 
     // When you're using floating points values a third parameter is required (Delta) which represents a positive margin of error of decimals.
 
@@ -69,4 +82,20 @@ public class TestingWithJunit {
         assertNotNull(phone);
         assertNull(laptop);
     }
+
+    @Test
+    public void testIfNamesIsInitialized(){
+        assertNotNull(names);
+    }
+
+    @Test
+    public void testIfANameCanBeAdded(){
+        assertEquals(1, this.names.size());
+        this.names.add("Zach");
+        assertEquals(2, this.names.size());
+        assertSame("Fer", this.names.get(0));
+        assertSame("Zach", this.names.get(1));
+    }
+
+
 }
