@@ -34,8 +34,19 @@ public class TestingWithJunit {
         Object dog = new Object();
         Object sheep = new Object();
         Object clonedSheep = sheep;
+        Object newClonedSheep = clonedSheep;
 
         assertNotSame(sheep, dog);
         assertSame(sheep, clonedSheep);
+        assertSame(newClonedSheep, sheep);
+
+    }
+
+    @Test
+    public void testIfArrayEquals() {
+        char[] expected = {'J','u','n','i','t'};
+        char[] actual = "Junit".toCharArray();
+
+        assertArrayEquals(expected, actual);
     }
 }
