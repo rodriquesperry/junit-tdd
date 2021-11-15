@@ -60,5 +60,13 @@ public class TestingWithJunit {
         assertFalse("5 is not greater than 6", 5 > 6);
     }
 
+    @Test
+    public void testIfInstanceIsNull() {
+        Object phone = new Object();
+        Object laptop = null;
 
+        assertNull(null);
+        assertNotNull(phone);
+        assertNull(laptop);
+    }
 }
