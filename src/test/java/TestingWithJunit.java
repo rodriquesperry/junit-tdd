@@ -26,6 +26,16 @@ public class TestingWithJunit {
 
         assertEquals(5.5, price - discount, 0);
         assertEquals(5.1, price - discount, 0.5);
-        assertNotEquals(4.9, price - discount, 0.5);
+        assertNotEquals(10.0, price - discount, 0.5);
+    }
+
+    @Test
+    public void testIfObjectsAreDifferent() {
+        Object dog = new Object();
+        Object sheep = new Object();
+        Object clonedSheep = sheep;
+
+        assertNotSame(sheep, dog);
+        assertSame(sheep, clonedSheep);
     }
 }
